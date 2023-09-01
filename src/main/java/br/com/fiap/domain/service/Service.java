@@ -15,6 +15,7 @@ public interface Service<T, U> {
     public T persist(T t);
 
     default boolean valido(String s) {
+
         return Objects.nonNull( s ) && !s.trim().isEmpty();
     }
 

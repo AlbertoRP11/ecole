@@ -1,6 +1,7 @@
 package br.com.fiap.domain.service;
 
 import br.com.fiap.domain.entity.Aluno;
+import br.com.fiap.domain.repository.AlunoRepository;
 import br.com.fiap.exception.MetodoNaoImplementadoException;
 
 import java.time.LocalDate;
@@ -9,21 +10,25 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 public class AlunoService implements Service<Aluno, Long> {
+    private AlunoRepository repository;
+    public AlunoService(){
+        repository = AlunoRepository.of();
+    }
 
 
     @Override
     public List<Aluno> findAll() {
-        throw new MetodoNaoImplementadoException("Método não Implementado");
+        return repository.findAll();
     }
 
     @Override
     public Aluno findById(Long id) {
-        throw new MetodoNaoImplementadoException("Método não Implementado");
+        return repository.findById(id);
     }
 
     @Override
     public List<Aluno> findByName(String texto) {
-        throw new MetodoNaoImplementadoException("Método não Implementado");
+        return repository.findByName(texto);
     }
 
     /**
@@ -36,7 +41,7 @@ public class AlunoService implements Service<Aluno, Long> {
      */
     @Override
     public Aluno persist(Aluno aluno) {
-        throw new MetodoNaoImplementadoException("Método não Implementado");
+        return repository.persist(aluno);
     }
 
     /**
