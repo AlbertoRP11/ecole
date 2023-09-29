@@ -7,11 +7,8 @@ import br.com.fiap.exception.MetodoNaoImplementadoException;
 import java.util.List;
 
 public class InstrutorService implements Service<Instrutor, Long> {
-    private InstrutorRepository repository;
 
-    public InstrutorService() {
-        repository =  InstrutorRepository.of();
-    }
+    private InstrutorRepository repository = InstrutorRepository.build();
     @Override
     public List<Instrutor> findAll() {
         return repository.findAll();
@@ -19,7 +16,7 @@ public class InstrutorService implements Service<Instrutor, Long> {
 
     @Override
     public Instrutor findById(Long id) {
-        return  repository.findById(id);
+        return repository.findById(id);
     }
 
     @Override

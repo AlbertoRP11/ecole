@@ -2,19 +2,17 @@ package br.com.fiap.domain.service;
 
 import br.com.fiap.domain.entity.Aluno;
 import br.com.fiap.domain.repository.AlunoRepository;
-import br.com.fiap.exception.MetodoNaoImplementadoException;
+
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
-import java.util.regex.Pattern;
+
 
 public class AlunoService implements Service<Aluno, Long> {
-    private AlunoRepository repository;
-    public AlunoService(){
-        repository = AlunoRepository.of();
-    }
 
+
+    private AlunoRepository repository = AlunoRepository.build();
 
     @Override
     public List<Aluno> findAll() {
@@ -60,5 +58,7 @@ public class AlunoService implements Service<Aluno, Long> {
         var matricula = LocalDate.now().getYear() + "." + r.nextInt(1000, 9999) + "-" + r.nextInt(10, 99);
         return matricula;
     }
+
+
 
 }

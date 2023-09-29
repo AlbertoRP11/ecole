@@ -2,19 +2,16 @@ package br.com.fiap.domain.service;
 
 import br.com.fiap.domain.entity.Curso;
 import br.com.fiap.domain.repository.CursoRepository;
-import br.com.fiap.exception.MetodoNaoImplementadoException;
+
 
 import java.util.List;
 
 public class CursoService implements Service<Curso, Long>{
-    private CursoRepository repository;
 
-    public CursoService() {
-        repository =  CursoRepository.of();
-    }
+    private CursoRepository repository = CursoRepository.build();
+
     @Override
     public List<Curso> findAll() {
-
         return repository.findAll();
     }
 
